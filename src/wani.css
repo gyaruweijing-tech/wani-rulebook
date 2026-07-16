@@ -1,0 +1,265 @@
+/* 番人ワニ（純CSS製）。元絵は480x300、scaleで縮小表示する */
+.wani-box {
+  --wani-scale: 0.55;
+  width: calc(480px * var(--wani-scale));
+  margin: 0 auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wani-stage {
+  position: relative;
+  width: 480px;
+  height: 300px;
+  transform: scale(var(--wani-scale));
+  transform-origin: top left;
+}
+
+.wani-caption {
+  margin: calc(-300px * (1 - var(--wani-scale)) + 0.2rem) 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+}
+
+@keyframes wani-wag {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes wani-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+@keyframes wani-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes wani-upper {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-14deg); }
+}
+@keyframes wani-lower {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+.wani-shadow {
+  position: absolute;
+  left: 110px;
+  bottom: 26px;
+  width: 280px;
+  height: 34px;
+  background: rgba(60, 90, 45, 0.18);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.wani-breathe {
+  position: absolute;
+  inset: 0;
+  animation: wani-breathe 3.2s ease-in-out infinite;
+}
+
+.wani-tail {
+  position: absolute;
+  left: 22px;
+  bottom: 120px;
+  width: 170px;
+  height: 64px;
+  background: #5fab4f;
+  transform-origin: right center;
+  animation: wani-wag 2.6s ease-in-out infinite;
+  clip-path: polygon(100% 0, 100% 100%, 0 58%, 0 42%);
+  border-radius: 6px;
+}
+
+.wani-ridge {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 20px solid #4d8f42;
+}
+
+.wani-ridge-t1 {
+  left: 70px;
+  bottom: 176px;
+  border-left-width: 9px;
+  border-right-width: 9px;
+  border-bottom-width: 16px;
+  transform: rotate(18deg);
+}
+.wani-ridge-t2 {
+  left: 110px;
+  bottom: 184px;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-bottom-width: 18px;
+  transform: rotate(8deg);
+}
+.wani-ridge-b1 { left: 200px; bottom: 188px; }
+.wani-ridge-b2 { left: 245px; bottom: 190px; }
+.wani-ridge-b3 {
+  left: 290px;
+  bottom: 184px;
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-bottom-width: 18px;
+  transform: rotate(8deg);
+}
+
+.wani-leg {
+  position: absolute;
+  bottom: 44px;
+  width: 36px;
+  height: 52px;
+  background: #4d8f42;
+  border-radius: 16px;
+}
+.wani-leg-back { left: 196px; }
+.wani-leg-front { left: 300px; }
+
+.wani-foot {
+  position: absolute;
+  bottom: 38px;
+  width: 52px;
+  height: 20px;
+  background: #3f7a38;
+  border-radius: 10px;
+}
+.wani-foot-back { left: 190px; }
+.wani-foot-front { left: 294px; }
+
+.wani-body {
+  position: absolute;
+  left: 150px;
+  bottom: 70px;
+  width: 230px;
+  height: 126px;
+  background: #79c066;
+  border-radius: 54% 60% 54% 54%;
+  box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.wani-head {
+  position: absolute;
+  left: 330px;
+  bottom: 96px;
+  width: 150px;
+  height: 120px;
+}
+
+.wani-skull {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 96px;
+  height: 96px;
+  background: #79c066;
+  border-radius: 46% 50% 40% 40%;
+}
+
+.wani-eye {
+  position: absolute;
+  left: 22px;
+  top: -6px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #8ace77;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wani-eye-white {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fbfaf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wani-blink 4s ease-in-out infinite;
+}
+
+.wani-pupil {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2f3a2c;
+}
+
+.wani-jaw-upper {
+  position: absolute;
+  left: 60px;
+  bottom: 44px;
+  width: 118px;
+  height: 40px;
+  background: #79c066;
+  border-radius: 14px 26px 8px 8px;
+  transform-origin: 0% 100%;
+}
+
+.wani-jaw-lower {
+  position: absolute;
+  left: 60px;
+  bottom: 24px;
+  width: 110px;
+  height: 26px;
+  background: #5fab4f;
+  border-radius: 8px 18px 16px 10px;
+  transform-origin: 0% 0%;
+}
+
+/* 口パクはクリック時だけ動かす */
+.wani-chomping .wani-jaw-upper {
+  animation: wani-upper 0.9s ease-in-out 2;
+}
+.wani-chomping .wani-jaw-lower {
+  animation: wani-lower 0.9s ease-in-out 2;
+}
+
+.wani-nostril {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 12px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3f7a38;
+}
+
+.wani-teeth {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+}
+
+.wani-teeth-upper {
+  left: 0;
+  bottom: -8px;
+  right: 6px;
+}
+.wani-teeth-upper span {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 11px solid #fbfaf4;
+}
+
+.wani-teeth-lower {
+  left: 6px;
+  top: -8px;
+  right: 16px;
+}
+.wani-teeth-lower span {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid #fbfaf4;
+}

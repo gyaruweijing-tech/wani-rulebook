@@ -1,0 +1,26 @@
+:root {
+  --paper: #f5efe2;
+  --paper-card: #fdfaf1;
+  --ink: #2b2620;
+  --ink-light: #5d5548;
+  --ink-faint: #9a8f7d;
+  --border: #d8cdb8;
+  --vermilion: #b3402a;
+  --gold: #d8b45a;
+  --gold-dark: #a07f2c;
+
+  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
