@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vite.dev/config/
 export default defineConfig({
   // GitHub Pages のリポジトリ名に合わせたパス
-  base: '/niwa-rulebook/',
+  base: '/wani-rulebook/',
   plugins: [
     react(),
     VitePWA({
