@@ -25,6 +25,7 @@ function App() {
   const [form, setForm] = useState<FormState>(null)
   const [filter, setFilter] = useState<string>('すべて')
   const [showGraduated, setShowGraduated] = useState(false)
+  const [showExport, setShowExport] = useState(false)
 
   useEffect(() => {
     saveRules(rules)
@@ -244,7 +245,14 @@ function App() {
 
       {/* お引越し */}
       <footer className="footer">
-        <h2 className="section-title">📦 お引越し</h2>
+        <button
+          className="toggle-graduated"
+          onClick={() => setShowExport((v) => !v)}
+        >
+          📦 お引越し（バックアップ） {showExport ? '▲' : '▼'}
+        </button>
+        {showExport && (
+          <>
         <div className="footer-buttons">
           <button
             onClick={() =>
@@ -284,6 +292,8 @@ function App() {
         <p className="footer-note">
           データはこの端末のブラウザ（localStorage）に保存されています。
         </p>
+          </>
+        )}
       </footer>
 
       {form && (

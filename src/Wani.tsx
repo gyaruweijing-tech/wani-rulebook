@@ -17,10 +17,12 @@ function Wani() {
       <div className={`wani-stage ${chomping ? 'wani-chomping' : ''}`}>
         <div className="wani-shadow" />
         <div className="wani-breathe">
-          {/* 尻尾 */}
-          <div className="wani-tail" />
-          <div className="wani-ridge wani-ridge-t1" />
-          <div className="wani-ridge wani-ridge-t2" />
+          {/* 尻尾（トゲごと一緒に振る） */}
+          <div className="wani-tail-group">
+            <div className="wani-tail" />
+            <div className="wani-ridge wani-ridge-t1" />
+            <div className="wani-ridge wani-ridge-t2" />
+          </div>
 
           {/* 脚と足 */}
           <div className="wani-leg wani-leg-back" />

@@ -61,15 +61,21 @@
   animation: wani-breathe 3.2s ease-in-out infinite;
 }
 
-.wani-tail {
+/* しっぽとトゲをまとめて振るためのグループ */
+.wani-tail-group {
   position: absolute;
   left: 22px;
   bottom: 120px;
   width: 170px;
   height: 64px;
-  background: #5fab4f;
   transform-origin: right center;
   animation: wani-wag 2.6s ease-in-out infinite;
+}
+
+.wani-tail {
+  position: absolute;
+  inset: 0;
+  background: #5fab4f;
   clip-path: polygon(100% 0, 100% 100%, 0 58%, 0 42%);
   border-radius: 6px;
 }
@@ -83,17 +89,18 @@
   border-bottom: 20px solid #4d8f42;
 }
 
+/* しっぽのトゲ（.wani-tail-group内の相対座標） */
 .wani-ridge-t1 {
-  left: 70px;
-  bottom: 176px;
+  left: 48px;
+  bottom: 56px;
   border-left-width: 9px;
   border-right-width: 9px;
   border-bottom-width: 16px;
   transform: rotate(18deg);
 }
 .wani-ridge-t2 {
-  left: 110px;
-  bottom: 184px;
+  left: 88px;
+  bottom: 64px;
   border-left-width: 10px;
   border-right-width: 10px;
   border-bottom-width: 18px;
