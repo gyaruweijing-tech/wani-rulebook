@@ -65,16 +65,16 @@ export function exportMarkdown(rules: Rule[]): string {
   const sotsugyo = rules.filter((r) => r.status === 'sotsugyo')
   const lines: string[] = ['# ワニのルールブック', '', `最終更新: ${todayStr()}`, '']
 
-  lines.push('## 🧭 三箇条', '')
+  lines.push('## 三箇条', '')
   if (sanka.length === 0) lines.push('（まだ空位）', '')
   sanka.forEach((r, i) => lines.push(...ruleLines(r, i)))
 
-  lines.push('## 📖 心得', '')
+  lines.push('## 心得', '')
   if (kokoroe.length === 0) lines.push('（まだなし）', '')
   kokoroe.forEach((r) => lines.push(...ruleLines(r)))
 
   if (sotsugyo.length > 0) {
-    lines.push('## 🎓 卒業したルール', '')
+    lines.push('## 卒業したルール', '')
     sotsugyo.forEach((r) => lines.push(...ruleLines(r)))
   }
 
